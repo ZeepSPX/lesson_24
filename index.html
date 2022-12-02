@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_24</title>
+</head>
+
+<body>
+	<div class="wrapper">
+
+		<main class="page">
+			<section class="page__test">
+				<div class="page__container">
+					<article class="page__text-synt">
+						<h2 class="title">Функції</h2>
+						<div class="page__task">
+							1. Першим потрапить Микола бо ми його визиваємо прям в консоль в той час як Василю ми задали
+							затримку і надали функцію;
+						</div>
+						<div class="page__task">
+							2. Так фукнція може викликатися як перед об'явою так і після об'яви;s
+						</div>
+						<div class="page__task">
+							3. Ні так як існує таке поняття як зона видимостя якщо ми оголошуємо змінну відразу функцією
+							то наступний виклик може відбуватися тільки після оголошення функції;
+						</div>
+						<div class="page__task">
+							4. let showMessage;
+							if (2 > 1) {
+							showMessage = function () {
+							console.log(`Message`);
+							}
+							}
+							showMessage(); тобто тут знову все пов'язане на зоні видимості, ми задаємо функціональний
+							вираз (Function Expression).
+						</div>
+					</article>
+					<article class="page__text-let">
+						<h3 class="title">Масиви</h3>
+						<div class="page__task">
+							1. довжина масиву 4
+						</div>
+						<div class="page__task">
+							2. Масиви:
+						</div>
+						<div class="page__task">
+							2.1 let users = [`Vasil`, `Ishtvan`,]; - створення масиву
+						</div>
+						<div class="page__task">
+							2.2 let newUsers = users;
+							newUsers.push(`Olya`);
+							console.log(newUsers); - додаємо елемент масиву в кінець
+						</div>
+						<div class="page__task">
+							2.3 let substituteUsers = users;
+							substituteUsers.splice(1, 1, `Petro`);
+							console.log(substituteUsers); - замінюємо елемент масиву
+						</div>
+						<div class="page__task">
+							2.4 let searchUsers = users;
+							console.log(searchUsers.find(el => el.length < 10));
+								console.log(searchUsers.indexOf(`Petro`)); - шукаємо елемент масиву, searchUsers.find -
+								виводить найперше елемент який співпадає під умову </div>
+								<div class="page__task">
+									2.5 let deleteUsers = users;
+									let removed = deleteUsers.splice(0, 1);
+									console.log(removed); - видалає і показує який елемент був видалений
+								</div>
+								<div class="page__task">
+									2.6 let adUsers = users;
+									adUsers.splice(0, 0, `Mary`, `Pavlo`);
+									console.log(adUsers); - додаємо в початок масиву елементи
+								</div>
+								<div class="page__task">
+									3. let arr = [`Vasil`, `Ishtvan`, `Olya`,];
+									let deleteUsers = arr;
+									let removed = deleteUsers.splice(1, 1);
+									console.log(removed);
+									console.log(deleteUsers);
+									let adUsers = deleteUsers;
+									adUsers.splice(0, 1, `Mary`, `Pavlo`);
+									console.log(adUsers);
+								</div>
+								<div class="page__task">
+									4.
+									let str = `Vasil,Ishtvan,Olya`;
+									let strArr = str.split(`,`, 3);
+									console.log(strArr);
+								</div>
+								<div class="page__task">
+									5. буде дорівнювати 9, так як немає іншого значення буде виводитися саме 9, якщо
+									вказати значення в reduce то першим буде саме це значення.
+								</div>
+					</article>
+					<article class="page__type-data">
+						<h3 class="title">DOM</h3>
+						<div class="page__task">
+							1.const elemOne = document.querySelector(`[data-say-hi]`);
+							const one = elemOne.getAttribute(`data-say-hi`);
+							console.log(one);
+						</div>
+						<div class="page__task">
+							2.const textElement = document.getElementsByTagName(`li`)[1];
+							const textElementContent = textElement.textContent;
+							console.log(textElementContent);
+						</div>
+						<div class="page__task"> 3.const elem = document.querySelectorAll(`.like`);
+							console.log(elem); </div>
+						<div class="page__task">
+							4. Нікуди бо ця функція викликає помилку.
+						</div>
+					</article>
+					<article class="page__text-let">
+						<h3 class="title">Прокрутка</h3>
+						<div class="page__task">
+							1. const width = document.documentElement;
+							const mainWidth = width.clientWidth;
+							const windowWidth = window.innerWidth;
+							console.log(windowWidth - mainWidth);
+						</div>
+						<div class="page__task">
+							2. function scrollPage() {
+							window.scrollTo({
+							top: 100,
+							left: 0,
+							behavior: "smooth"
+							});
+							}
+							setTimeout(scrollPage, 1000);
+						</div>
+						<div class="page__task">
+							3. const itemOne = document.querySelector('.title');
+							const itemTwo = document.querySelector('.page__task');
+							const itemThree = document.querySelector(`.page__img`);
+							const getItemCoords = itemOne.getBoundingClientRect();
+							const getItemTwo = itemTwo.getBoundingClientRect();
+							const getItemThree = itemThree.getBoundingClientRect();
+							console.log(getItemCoords);
+							console.log(getItemTwo);
+							console.log(getItemThree);
+						</div>
+					</article>
+					<div data-say-hi="yes"> Hi </div>
+					<ul>
+						<li>Korchi</li>
+						<li>Younchi</li>
+					</ul>
+					<div class="like"></div>
+					<div class="subscribe"></div>
+					<div class="like-subscribe"></div>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+					</ul>
+					<div class="page__container">
+						<img class="page__img" src="img/googlr.jpg" alt="google">
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer"></footer>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+
+</html>
